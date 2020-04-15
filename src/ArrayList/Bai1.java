@@ -9,23 +9,34 @@ public class Bai1 {
     public void addStudent(Student st) {
         students.add(st);
     }
-    public void deleteDocument(int id) {
-        students.remove(id);
+    public void deleteStudent(ArrayList<Student> students,int id) {
+        for(int i = 0 ; i< students.size(); i++){
+            if(students.get(i).getId() ==  id ){
+                this.students.remove(i);
+            }
+        }
     }
-    public void updateStudent(int id, String nameChange){
 
-        for(Student st : students){
-           if(st.equals(id)){
-               st.setName(nameChange);
-           }
-       }
+    public void updateStudent(int id, String nameChange) {
+        for (Student st : students) {
+            if (st.getId() == id) {
+
+            }
+        }
+
     }
-    public List<Student> searchStudentByID(String id) {
-        return students.stream().filter(student -> student.getId()
-                .equals(id)).findFirst().orElse(null);
+
+    public void searchStudentByID(int id) {
+        for(Student st : students){
+            if(st.getId() == id){
+                System.out.println(st.toString());
+            }
+        }
+
     }
     public void showStudent(){
-        students.forEach(student -> System.out.println(student.toString()));
+        for (Student st : students)
+        System.out.println(st.toString());
     }
 
 }
