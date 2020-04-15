@@ -21,7 +21,7 @@ public class Bai1 {
        }
     }
     public List<Student> searchStudentByID(String id) {
-        return this.students.stream().filter(student -> student.getId()
+        return students.stream().filter(student -> student.getId()
                 .equals(id)).findFirst().orElse(null);
     }
     public void showStudent(){
