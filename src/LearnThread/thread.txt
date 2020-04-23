@@ -1,0 +1,9 @@
+application ->  process  (pid) (process id)
+process -> multi thread. (tid) (thread id)
+
+thread: co 2 cach tao.
+    extends Thread
+        class.start();
+    implement Runnable
+        Thread t = new Thread(runn);
+        t.start();

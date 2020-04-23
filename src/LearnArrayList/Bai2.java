@@ -1,6 +1,5 @@
-package ArrayList;
-import java.util.Scanner;
-import java.util.Arrays;
+package LearnArrayList;
+
 public class Bai2 {
     public Student[] students;
     public Bai2(){

@@ -1,4 +1,4 @@
-package ArrayList;
+package LearnVector;
 
 public class Student {
     private int id;

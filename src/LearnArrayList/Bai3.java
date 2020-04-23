@@ -1,4 +1,4 @@
-package ArrayList;
+package LearnArrayList;
 import java.util.Vector;
 public class Bai3 {
     public Vector<Student> vec ;

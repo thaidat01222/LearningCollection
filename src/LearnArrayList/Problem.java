@@ -1,4 +1,4 @@
-package ArrayList;
+package LearnArrayList;
 
 /**
  * them/ sua / xoa/ search == StudentManagerArrayList - 16/4

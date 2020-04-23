@@ -1,0 +1,15 @@
+https://gpcoder.com/3484-lap-trinh-da-luong-trong-java-java-multi-threading/
+
+
+//tao 1 thread. chay vo tan, them vao 1 so tu nhien random tu 1.100 vao trong 1 list
+//tao 1 thread khac, de doc cac phan tu cua list -> in ra man hinh binh phuong cua phan tu do.
+
+
+class extends Thread{
+
+run (){
+while(true){
+//
+}
+}
+}
