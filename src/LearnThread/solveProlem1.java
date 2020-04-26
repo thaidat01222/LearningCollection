@@ -1,5 +1,6 @@
 package LearnThread;
 import java.util.Vector;
+import java.util.Random;
 
 public class solveProlem1 {
     public static void main(String[] args) throws InterruptedException {
@@ -19,12 +20,11 @@ class ThreadA extends Thread {
     }
     @Override
     public void run() {
-        int i = 0;
         while(true) {
-             i = (int)Math.random()*100;
+            Random rd = new Random();
+            int number = rd.nextInt();
             synchronized (integers){
-            integers.add(i);
-                System.out.println(i);
+            integers.add(number);
             }
             try {
                 Thread.sleep(2000);
@@ -36,11 +36,10 @@ class ThreadA extends Thread {
 }
 class ThreadB extends Thread{
     private Vector<Integer> integers;
-    ThreadB(Vector<Integer> integers){
+    ThreadB(Vector<Integer> integers) {
         this.integers = integers;
     }
-    @Override
-    public void run(){
+    public void run(Vector<Integer> integers){
         int i = 0;
         while(true) {
             System.out.println(integers.get(i));
