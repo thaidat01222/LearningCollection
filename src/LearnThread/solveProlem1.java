@@ -8,9 +8,7 @@ public class solveProlem1 {
         ThreadA a = new ThreadA(list);
         ThreadB b = new ThreadB(list);
         a.start();
-        a.join();
         b.start();
-        b.join();
 }}
 
 class ThreadA extends Thread {
@@ -21,10 +19,12 @@ class ThreadA extends Thread {
     @Override
     public void run() {
         while(true) {
+            System.out.println("aaaa");
             Random rd = new Random();
             int number = rd.nextInt();
             synchronized (integers){
             integers.add(number);
+                System.out.println(number);
             }
             try {
                 Thread.sleep(2000);
@@ -39,15 +39,19 @@ class ThreadB extends Thread{
     ThreadB(Vector<Integer> integers) {
         this.integers = integers;
     }
-    public void run(Vector<Integer> integers){
+    @Override
+    public void run(){
         int i = 0;
-        while(true) {
-            System.out.println(integers.get(i));
-            i++;
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        if(integers.size()!= 0 ){
+            while(true) {
+                System.out.println("bbbbbb");
+                System.out.println(integers.get(i));
+                i++;
+                try {
+                    Thread.sleep(2050);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
