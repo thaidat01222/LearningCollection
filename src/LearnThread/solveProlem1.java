@@ -1,30 +1,36 @@
 package LearnThread;
-import java.util.Vector;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class solveProlem1 {
-    public static void main(String[] args) throws InterruptedException {
-        Vector<Integer> list = new Vector<>();
-        ThreadA a = new ThreadA(list);
-        ThreadB b = new ThreadB(list);
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        List<Integer> synchronizedList = Collections.synchronizedList(list);
+//        Vector performance
+        ThreadA a = new ThreadA(synchronizedList);
+        ThreadB b = new ThreadB(synchronizedList);
         a.start();
         b.start();
-}}
+    }
+}
 
 class ThreadA extends Thread {
-    private Vector<Integer> integers;
-    ThreadA(Vector<Integer> integers) {
+    private final List<Integer> integers;
+
+    ThreadA(List<Integer> integers) {
         this.integers = integers;
     }
+
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             Random rd = new Random();
             int number = rd.nextInt();
-            synchronized (integers){
             integers.add(number);
-                System.out.println("ThreadA "+number);
-            }
+            System.out.println("ThreadA " + number);
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
@@ -33,17 +39,20 @@ class ThreadA extends Thread {
         }
     }
 }
-class ThreadB extends Thread{
-    private Vector<Integer> integers;
-    ThreadB(Vector<Integer> integers) {
+
+class ThreadB extends Thread {
+    private final List<Integer> integers;
+
+    ThreadB(List<Integer> integers) {
         this.integers = integers;
     }
+
     @Override
-    public void run(){
+    public void run() {
         int i = 0;
-            while(true) {
-                if(integers.size() > i ){
-                System.out.println("ThreadB " +integers.get(i));
+        while (true) {
+            if (integers.size() > i) {
+                System.out.println("ThreadB " + integers.get(i));
                 i++;
                 try {
                     Thread.sleep(1000);
@@ -51,6 +60,7 @@ class ThreadB extends Thread{
                     e.printStackTrace();
                 }
             }
+
         }
     }
 }
