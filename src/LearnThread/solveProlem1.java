@@ -19,12 +19,11 @@ class ThreadA extends Thread {
     @Override
     public void run() {
         while(true) {
-            System.out.println("aaaa");
             Random rd = new Random();
             int number = rd.nextInt();
             synchronized (integers){
             integers.add(number);
-                System.out.println(number);
+                System.out.println("ThreadA "+number);
             }
             try {
                 Thread.sleep(2000);
@@ -42,13 +41,12 @@ class ThreadB extends Thread{
     @Override
     public void run(){
         int i = 0;
-        if(integers.size()!= 0 ){
             while(true) {
-                System.out.println("bbbbbb");
-                System.out.println(integers.get(i));
+                if(integers.size() > i ){
+                System.out.println("ThreadB " +integers.get(i));
                 i++;
                 try {
-                    Thread.sleep(2050);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
