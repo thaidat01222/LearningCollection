@@ -1,17 +1,19 @@
 package LearnHashmap.Problem1;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Random;
-    public class SolveProblem1 {
+
+public class SolveProblem1 {
         public static void main(String[] args) {
             //tao tong dai
             BusMessage busMessage = new BusMessage();
             //tao user
              User[] users = new  User[10];
             for (int i = 0; i < 10; i++) {
-                users[i] = new  User("User" + i);
+                users[i] = new  User("User" +i );
             }
             for(int i = 0 ; i< 100; i++){
-                 threadCreateRandomMessage a = new  threadCreateRandomMessage();
+                 ThreadCreateRandomMessage a = new  ThreadCreateRandomMessage();
                 a.start();
                 try {
                     Thread.sleep(100);
@@ -19,9 +21,20 @@ import java.util.Random;
                     e.printStackTrace();
                 }
             }
+            while (true){
+                for(int i = 0; i<10;i++) {
+                    ThreadCheckMailBox b = new ThreadCheckMailBox(i);
+                    b.start();
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    }
+                }
+            }
         }
     }
-    class threadCreateRandomMessage extends Thread  {
+    class ThreadCreateRandomMessage extends Thread  {
         private User[] user ;
         private BusMessage busMessage;
         @Override
@@ -36,7 +49,49 @@ import java.util.Random;
             }
             String randomMessage = indexOfContent[(int) (Math.random()*100)];
             LocalDate today = LocalDate.now();
-             Message message = new Message(user[randomIndexUserFrom].getName(),user[randomIndexUserTo].getName(), randomMessage,today);
+            Message message = new Message(user[randomIndexUserFrom].getName(),user[randomIndexUserTo].getName(), randomMessage,today);
             busMessage.sendMessage(message);
         }
     }
+    class ThreadCheckMailBox extends Thread{
+        private int i ;
+        private User[] users;
+        private BusMessage busMessage;
+        ThreadCheckMailBox(int i){
+            ;
+        }
+        @Override
+        public void run(){
+            List<Message> messageList= busMessage.getMessages(users[i].getName());
+            if(messageList != null){
+                for(Message message : messageList){
+                    users[i].getMessageList().add(message);
+                }
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
