@@ -1,0 +1,38 @@
+Multi-thread
+Synchronized
+Collection Map, List
+Array
+OOP
+
+BusMessage.java
+    Map<String,List<Message>> busMessageMap
+       KEY to, List<Message> message -> "to"
+       A -X : content: A-X M1
+       B -X: content: B-X M2
+       A -Y: content : A-Y M3
+
+       X, (M1,M2)
+       Y, (M3)
+    trong BusMessage, viet ham : sendMessage(Message m) de gui tin nhan toi tong dai.
+    trong BusMessage, viet ham: getMessages(String userName) de lay ra danh sach tin nhan chua doc cua thang userName
+
+    tao: 10 User.
+        User1,...User10
+    tao: 100 thread.
+        moi thread, sinh ra ngau nhien 1 user from, 1 user from ,ngau nhien 1 content -> Message
+        sau do, add message nay` vao busMessageMap
+        cach nhau 0.1s.
+        chay lien tuc.
+
+    tao: 10 thread ung voi 10 User
+        moi thread cach nhau 0.5s.
+        chay lien tuc.
+        kiem tra user hien tai co tin nhan nao moi hay khong, neu co thi remove ra khoi busMessage
+        add them tin nhan moi nhan duoc vao list tin nhan cua User.
+
+
+Message.java
+    String from;
+    String to;
+    String content;
+    DateTime time;
