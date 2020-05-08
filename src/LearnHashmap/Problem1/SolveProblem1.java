@@ -23,7 +23,7 @@ public class SolveProblem1 {
             }
             while (true){
                 for(int i = 0; i<10;i++) {
-                    ThreadCheckMailBox b = new ThreadCheckMailBox(i);
+                    ThreadCheckMailBox b = new ThreadCheckMailBox();
                     b.start();
                     try {
                         Thread.sleep(500);
@@ -57,7 +57,7 @@ public class SolveProblem1 {
         private int i ;
         private User[] users;
         private BusMessage busMessage;
-        ThreadCheckMailBox(int i){
+        ThreadCheckMailBox(){
             ;
         }
         @Override

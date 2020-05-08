@@ -13,7 +13,7 @@ BusMessage.java
 
        X, (M1,M2)
        Y, (M3)
-    trong BusMessage, viet ham : sendMessage(Message m) de gui tin nhan toi tong dai.
+    trong BusMessage, viet ham : sendMessage(Messxage m) de gui tin nhan toi tong dai.
     trong BusMessage, viet ham: getMessages(String userName) de lay ra danh sach tin nhan chua doc cua thang userName
 
     tao: 10 User.

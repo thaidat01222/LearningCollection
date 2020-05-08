@@ -10,7 +10,6 @@ public class GetSMSThread extends Thread {
         this.user = user;
         this.smsCenter = smsCenter;
     }
-
     @Override
     public void run() {
         while (true) {

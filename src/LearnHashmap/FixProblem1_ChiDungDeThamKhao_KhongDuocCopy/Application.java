@@ -34,7 +34,7 @@ public class Application {
 
     public void initSendingSMSThread(int size) {
         sendSMSThreads = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
+         for (int i = 0; i < size; i++) {
             sendSMSThreads.add(new SendSMSThread("SEND " + (i + 1), users, smsCenter));
         }
     }

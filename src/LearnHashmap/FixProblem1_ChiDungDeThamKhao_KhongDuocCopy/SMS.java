@@ -7,7 +7,6 @@ public class SMS {
     private String to;
     private String content;
     private LocalDate date;
-
     public SMS() {
 
     }
