@@ -15,6 +15,6 @@ public class test {
         cloneLinkedList.showAll();
         cloneLinkedList.remove("b");
         cloneLinkedList.showAll();
-        cloneLinkedList.search("b");
+        cloneLinkedList.search("a");
     }
 }
