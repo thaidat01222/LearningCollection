@@ -33,4 +33,6 @@ public class Node {
         this.thisNode = thisStudent;
         this.previousNode = previousNode;
     }
+
+
 }

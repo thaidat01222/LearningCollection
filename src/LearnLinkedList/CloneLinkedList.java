@@ -1,4 +1,5 @@
 package LearnLinkedList;
+
 public class CloneLinkedList {
     public int size = 0;
     public Node headNode = null;
@@ -47,17 +48,28 @@ public class CloneLinkedList {
         System.out.println(currentNode.getThisNode());
     }
 
+    public boolean nodeNull(Node node){
+        if(node.getThisNode() == null){
+            return true;
+        }
+        else return false;
+    }
     public void search(String content) {
         Node currentNode = headNode;
         int index = 0;
-            while (currentNode.getThisNode() != content) {
+        while (currentNode.getThisNode() != null) {
+            if (currentNode.getThisNode() == content) {
+                System.out.println("| index : " + index);
+                return;
+            }
+            else {
                 currentNode = currentNode.getForwardNode();
                 index++;
-                if (currentNode.getThisNode() != null) {
-                    System.out.println("ko tim thay");
+                if(currentNode == null){
+                    System.out.println("ko tim thay ");
                     return;
                 }
             }
-            System.out.println("PreviosusNode : " + currentNode.getPreviousNode() + "| ThisNode : " + currentNode.getThisNode() + "| FowardNode : " + currentNode.getForwardNode() + "| index : " + index);
+        }
     }
 }
