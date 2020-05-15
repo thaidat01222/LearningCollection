@@ -1,0 +1,12 @@
+-sua lai ham CloneLinkedList = generics.
+-so sanh int va Integer, float va Float, long va Long. (primitive type / wrapper type / object)
+-so sanh String, StringBuilder, StringBuffer. (T2)
+
+==============================================
+-lam bai tap tong hop java + jdbc + collections + thread.
+-hoc html (co ban)
+-hoc javascript + css (co ban)
+
+==============================================
+-hoc spring frameworks
+...
