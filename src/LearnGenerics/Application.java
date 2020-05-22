@@ -20,6 +20,11 @@ public class Application {
         cloneLinkedList.remove("3");
         cloneLinkedList.showAll();
         System.out.println("=====================");
+        cloneLinkedList.update("1", "5");
+        cloneLinkedList.showAll();
+        System.out.println("===========================");
+        cloneLinkedList.search("1");
+
 
         Integer[] is = {1, 2, 3, 4, 5,};
         showArray(is);

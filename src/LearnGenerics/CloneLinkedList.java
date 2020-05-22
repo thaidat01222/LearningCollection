@@ -20,6 +20,7 @@ public class CloneLinkedList<T> {
             lastNode.setPrevNode(current);
             current.setNextNode(lastNode);
         }
+        size++;
     }
 
     public void remove(T content) {
@@ -28,9 +29,9 @@ public class CloneLinkedList<T> {
             return;
         }
         do {
-            if (current.getContent().equals(content)) {
+        if (current.getContent().equals(content)) {
                 Node<T> prevNode = current.getPrevNode();
-                Node<T> nextNode = current.getNextNode();
+                    Node<T> nextNode = current.getNextNode();
                 if (prevNode != null) {
                     prevNode.setNextNode(nextNode);
                 } else {
@@ -40,6 +41,7 @@ public class CloneLinkedList<T> {
                 if (nextNode != null) {
                     nextNode.setPrevNode(prevNode);
                 }
+                size--;
                 return;
             } else {
                 current = current.getNextNode();
@@ -57,5 +59,47 @@ public class CloneLinkedList<T> {
             System.out.println(current.getContent());
             current = current.getNextNode();
         } while (current != null);
+        System.out.println("Size: " +size);
+    }
+    public void update(T content, T newContent){
+        Node<T> current = head;
+        int i = 0;
+        if(current == null){
+            System.out.println("ko tim thay");
+            return;
+        }
+        while (current != null){
+            if(current.getContent().equals(content)){
+                current.setContent(newContent);
+                return;
+            }
+            else {
+                current = current.getNextNode();
+                i ++;
+            }
+        }
+        if(i==size) System.out.println("ko tim thay");;
+    }
+    public void search(T content){
+        Node<T> current = head;
+        int i = 0;
+        if(current == null){
+            System.out.println("ko tim thay");
+            return;
+        }
+        while(current != null){
+            if(current.getContent().equals(content)){
+                System.out.println("Previus: " +current.getPrevNode()+ " this: " +current.getContent()+ " Next: " +current.getNextNode());
+                return;
+            }
+            else {
+                current = current.getNextNode();
+                i++;
+            }
+        }
+        if(i== size){
+            System.out.println("ko tim thay");
+            return;
+        }
     }
 }
