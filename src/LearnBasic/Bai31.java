@@ -1,6 +1,8 @@
 package LearnBasic;
 import java.util.ArrayList;
 
+import static java.lang.System.*;
+
 public class Bai31 {
     public static void main(String[] args) {
         ArrayList<String> listA = new ArrayList<>();
@@ -19,35 +21,32 @@ public class Bai31 {
         listB.add("8");
         listB.add("9");
         listB.add("10");
-        System.out.println("listA :");
-        System.out.println(listA);
-        System.out.println("listB :");
-        System.out.println(listB);
-        System.out.println("=======================================");
+        out.println("listA :");
+        out.println(listA);
+        out.println("listB :");
+        out.println(listB);
+        out.println("=======================================");
 
-        System.out.println("Cau b");
+        out.println("Cau b");
         Bai31 bai31 = new Bai31();
         ArrayList<String> listC = bai31.Hop_Hai_Tap_Hop(listA,listB);
-        System.out.println(listC);
-        System.out.println("=======================================");
+        out.println(listC);
+        out.println("=======================================");
 
-        System.out.println("Cau c");
+        out.println("Cau c");
         ArrayList<String> listD = bai31.Giao_Hai_Tap_Hop(listA,listB);
-        System.out.println(listD);
-        System.out.println("=======================================");
+        out.println(listD);
+        out.println("=======================================");
 
-        System.out.println("Cau d");
+        out.println("Cau d");
         ArrayList<String> listE = bai31.Bu_Hai_Tap_Hop(listA,listB);
-        System.out.println(listE);
-        System.out.println("=======================================");
+        out.println(listE);
+        out.println("=======================================");
 
     }
     public ArrayList<String> Hop_Hai_Tap_Hop(ArrayList<String> A, ArrayList<String> B){
         ArrayList<String> C = new ArrayList<>();
-        for(int i = 0; i < A.size(); i++){
-            String temp = A.get(i);
-            C.add(temp);
-        }
+        C.addAll(A);
         for(int i = 0 ; i<B.size(); i++){
             String temp = B.get(i);
             C.add(temp);
@@ -56,19 +55,18 @@ public class Bai31 {
     }
     public ArrayList<String> Giao_Hai_Tap_Hop(ArrayList<String> A, ArrayList<String> B){
         ArrayList<String> C = new ArrayList<>();
-        for(int i = 0; i<A.size(); i++){
-            if(B.contains(A.get(i))){
-                String temp = A.get(i);
+        for (String s : A)
+            if (B.contains(s)) {
+                String temp = s;
                 C.add(temp);
             }
-        }
         return C;
     }
     public ArrayList<String> Bu_Hai_Tap_Hop(ArrayList<String> A, ArrayList<String> B){
         ArrayList<String> C = new ArrayList<>();
-        for(int i = 0; i<A.size(); i++){
-            if(B.contains(A.get(i)) == false){
-                String temp = A.get(i);
+        for (String s : A) {
+            if (B.contains(s) == false) {
+                String temp = s;
                 C.add(temp);
             }
         }
